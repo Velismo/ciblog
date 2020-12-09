@@ -70,4 +70,10 @@
     <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
   <?php endif; ?>
 
+  <?php if($this->session->flashdata('user_loggedin')): ?>
+    <br>
+    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>'; ?>
+  <?php endif; ?>
+
+
   

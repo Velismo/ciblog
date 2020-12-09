@@ -50,7 +50,14 @@
 
                 if($user_id){
                     // Create session
-                    die('SUCCESS');
+                    $user_data = array(
+                        'user_id' => $user_id,
+                        'username' => $username,
+                        'logged_in' => true
+                    );
+
+                    $this->session->set_userdata($user_data);
+                    
                     // Set message
                     $this->session->set_flashdata('user_loggedin', 'You are now logged in');
 
