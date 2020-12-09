@@ -27,6 +27,9 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
       </li>
       <li class="nav-item">
@@ -60,6 +63,11 @@
 
   <?php if($this->session->flashdata('post_deleted')): ?>
     <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'</p>'; ?>
+  <?php endif; ?>
+
+  <?php if($this->session->flashdata('login_failed')): ?>
+    <br>
+    <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
   <?php endif; ?>
 
   
