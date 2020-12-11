@@ -44,7 +44,9 @@
                 'title' => $this->input->post('title'),
                 'slug' => $slug,
                 'body' => $this->input->post('body'),
-                'category_id' => $this->input->post('category_id') 
+                'category_id' => $this->input->post('category_id'),
+                'user_id' => $this->session->userdata('user_id'),
+                'post_image' => $post_image 
             );
 
             $this->db->where('id', $this->input->post('id'));
