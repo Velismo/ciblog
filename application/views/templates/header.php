@@ -2,7 +2,7 @@
     <head>
         <title>ciBlog</title>
         <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
+        <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
         <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
     </head>
     <body>
@@ -85,6 +85,11 @@
   <?php if($this->session->flashdata('user_loggedout')): ?>
     <br>
     <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
+  <?php endif; ?>
+
+  <?php if($this->session->flashdata('category_deleted')): ?>
+    <br>
+    <?php echo '<p class="alert alert-success">'.$this->session->flashdata('category_deleted').'</p>'; ?>
   <?php endif; ?>
 
 
