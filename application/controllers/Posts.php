@@ -1,6 +1,16 @@
 <?php
     class Posts extends CI_Controller{
-        public function index(){            
+        public function index($offset = 0){  
+            //Pagination config    
+            $config['base_url'] = base_url() . 'posts/index/';
+            $config['total_rows'] = $this->db->count_all('posts');
+            $config['per_page'] = 3;
+            $config['uri_segment'] = 3;
+            $config['attributes'] = array('class' => 'pagination-link');
+
+            // Init pagination
+            $this->pagination->initialize($config);
+            
             $data['title'] = 'Latest Posts';
 
             $data['posts'] = $this->post_model->get_posts();
@@ -28,7 +38,7 @@
 
         public function create(){
             // Check login
-            if(!$this->session->userdata('loggend_in')){
+            if(!$this->session->userdata('logged_in')){
                 redirect('users/login');
             }
 
@@ -71,7 +81,7 @@
 
         public function delete($id){
              // Check login
-             if(!$this->session->userdata('loggend_in')){
+             if(!$this->session->userdata('logged_in')){
                 redirect('users/login');
             }
 
@@ -85,7 +95,7 @@
 
         public function edit($slug){
              // Check login
-             if(!$this->session->userdata('loggend_in')){
+             if(!$this->session->userdata('logged_in')){
                 redirect('users/login');
             }
 
@@ -111,7 +121,7 @@
 
         public function update(){
              // Check login
-             if(!$this->session->userdata('loggend_in')){
+             if(!$this->session->userdata('logged_in')){
                 redirect('users/login');
             }
 
